@@ -5,5 +5,11 @@
   prep_time: @recipe.prep_time,
   ingredients: @recipe.ingredients,
   directions: @recipe.directions,
-  image_url: @recipe.image_url
+  image_url: @recipe.image_url,
+  formatted: {
+    created_at: @recipe.friendly_created_at,
+    prep_time: @recipe.friendly_prep_time,
+    ingredients: @recipe.ingredients_list,
+    directions: @recipe.directions_list
+  }
 }
