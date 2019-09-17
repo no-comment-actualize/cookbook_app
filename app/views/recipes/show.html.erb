@@ -1,0 +1,10 @@
+<h2><%= @recipe.title %></h2>
+
+<img src="<%= @recipe.image_url %>" alt="">
+
+<h5>Ingredients: <%= @recipe.ingredients %></h5>
+<h5>Directions: <%= @recipe.directions %></h5>
+<h6>Prep time in minutes: <%= @recipe.prep_time %></h6>
+<h6>Created by: <%= @recipe.user.name %></h6>
+
+<a href="/recipes">All Recipes</a>
