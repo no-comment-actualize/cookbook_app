@@ -7,4 +7,6 @@
 <h6>Prep time in minutes: <%= @recipe.prep_time %></h6>
 <h6>Created by: <%= @recipe.user.name %></h6>
 
+<a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
+
 <a href="/recipes">All Recipes</a>

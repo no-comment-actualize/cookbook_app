@@ -16,15 +16,20 @@ class RecipesController < ApplicationController
       directions: params[:directions],
       image_url: params[:image_url],
       prep_time: params[:prep_time],
-      user_id: 1
+      user_id: params[:user_id]
     )
     @recipe.save
-    redirect_to "/recipes"
+    redirect_to "/recipes/#{@recipe.id}"
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     render 'show.html.erb'
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+    render 'edit.html.erb'
   end
 
 end

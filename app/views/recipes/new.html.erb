@@ -16,5 +16,11 @@
   <div>
     Prep Time: <input type="number" name="prep_time">
   </div>
+  Created by: 
+  <select name="user_id" id="">
+    <% User.all.each do |user| %>
+      <option value="<%= user.id %>"><%= user.name %></option>
+    <% end %>
+  </select><br>
   <input type="submit" value="Create Recipe">
 </form>
