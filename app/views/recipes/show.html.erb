@@ -8,5 +8,6 @@
 <h6>Created by: <%= @recipe.user.name %></h6>
 
 <a href="/recipes/<%= @recipe.id %>/edit">Edit</a>
+<a href="/recipes/<%= @recipe.id %>" data-method="delete">Delete</a><br>
 
 <a href="/recipes">All Recipes</a>
