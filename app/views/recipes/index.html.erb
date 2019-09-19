@@ -1,9 +1,27 @@
-<h1>Recipes Index</h1>
-<% @recipes.each do |recipe| %>
-  <h2><%= recipe.title %></h2>
-  <img src="<%= recipe.image_url %>" alt="">
-  <h4>Ingredients: <%= recipe.ingredients %></h4>
-  <h4>Directions: <%= recipe.directions %></h4>
-  <h4>Prep time: <%= recipe.prep_time %></h4>
-  <a href="/recipes/<%= recipe.id %>">More Info</a>
-<% end %>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Cheddar's Cookbook</h1>
+    <p class="lead">These are all the recipes.</p>
+  </div>
+</div>
+
+
+<div class="card-columns">
+
+  <% @recipes.each do |recipe| %>
+
+    <div class="card">
+      <img src="<%= recipe.image_url %>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= recipe.title %></h5>
+        <p class="card-text">Ingredients: <%= recipe.ingredients %></p>
+        <p class="card-text">Directions: <%= recipe.directions %></p>
+
+        <a href="/recipes/<%= recipe.id %>" class="btn btn-success">More Info</a>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+
