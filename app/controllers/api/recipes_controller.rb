@@ -23,10 +23,13 @@ class Api::RecipesController < ApplicationController
       directions: params[:directions], 
       prep_time: params[:prep_time].to_i,
       image_url: params[:image_url],
-      user_id: current_user.id
+      user_id: 1
     )
-    @recipe.save
-    render "show.json.jb"
+    if @recipe.save
+      render "show.json.jb"
+    else
+      render json: {errors: @recipe.errors.full_messages}, status: 422
+    end
   end
 
   def update
@@ -38,14 +41,17 @@ class Api::RecipesController < ApplicationController
     @recipe.prep_time = params[:prep_time] || @recipe.prep_time
     @recipe.image_url = params[:image_url] || @recipe.image_url
 
-    @recipe.save
-    render "show.json.jb"
+    if @recipe.save
+      render "show.json.jb"
+    else
+      render json: {errors: @recipe.errors.full_messages}, status: 422
+    end
   end
 
   def destroy
     recipe = Recipe.find_by(id: params[:id])
     recipe.destroy
-    render json: {message: "Recipe successfully destroye!"}
+    render json: {message: "Recipe successfully destroyed!"}
   end
 
 end
