@@ -62,4 +62,22 @@ RSpec.describe "Recipes", type: :request do
       expect(response).to have_http_status(422)     
     end
   end
+  describe "PATCH /recipes/:id" do
+    it "updates a recipe" do
+      jwt = JWT.encode({user_id: User.first.id}, Rails.application.credentials.fetch(:secret_key_base),'HS256')
+      recipe_id = Recipe.first.id
+
+      patch "/api/recipes/#{recipe_id}",
+      params: {
+        title: "Updated Recipe Title"
+      },
+      headers: {
+        Authorization: "Bearer #{jwt}"
+      }
+      recipe = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+      expect(recipe["title"]).to eq("Updated Recipe Title")
+      expect(recipe["prep_time"]).to eq(5)
+    end
+  end
 end
