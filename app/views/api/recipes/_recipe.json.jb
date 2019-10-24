@@ -1,6 +1,6 @@
 {
   id: recipe.id,
-  title: recipe.title,
+  name: recipe.name,
   prep_time: recipe.prep_time,
   ingredients: recipe.ingredients,
   directions: recipe.directions,
