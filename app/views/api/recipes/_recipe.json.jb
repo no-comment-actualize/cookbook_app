@@ -5,6 +5,7 @@
   ingredients: recipe.ingredients,
   directions: recipe.directions,
   image_url: recipe.image_url,
+  updated_at: recipe.updated_at,
   formatted: {
     created_at: recipe.friendly_created_at,
     prep_time: recipe.friendly_prep_time,
