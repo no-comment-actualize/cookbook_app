@@ -1,11 +1,11 @@
 recipe = render partial: "recipe.json.jb", locals: { recipe: @recipe }
 
 # render custom user object
-recipe[:user] = {
-  id: @recipe.user.id,
-  name: @recipe.user.name,
-  email: @recipe.user.email
-}
+# recipe[:user] = {
+#   id: @recipe.user.id,
+#   name: @recipe.user.name,
+#   email: @recipe.user.email
+# }
 
 # render user object from user partial
 recipe[:user] = render partial: 'api/users/user', locals: { user: @recipe.user}

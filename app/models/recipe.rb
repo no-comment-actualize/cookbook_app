@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
 
-  validates :title, :ingredidents, :directions, presence: true
+  validates :title, :ingredients, :directions, presence: true
   validates :prep_time, numericality: { greater_than: 0 }
 
   belongs_to :user
