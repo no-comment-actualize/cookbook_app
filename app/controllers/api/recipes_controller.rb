@@ -24,7 +24,7 @@ class Api::RecipesController < ApplicationController
       cloudinary_url = response["secure_url"]
     end
     @recipe = Recipe.new(
-      name: params[:name], 
+      title: params[:title], 
       ingredients: params[:ingredients], 
       directions: params[:directions], 
       prep_time: params[:prep_time].to_i,
@@ -46,7 +46,7 @@ class Api::RecipesController < ApplicationController
       cloudinary_url = response["secure_url"]
     end
 
-    @recipe.name = params[:name] || @recipe.name
+    @recipe.title = params[:title] || @recipe.title
     @recipe.ingredients = params[:ingredients] || @recipe.ingredients
     @recipe.directions = params[:directions] || @recipe.directions
     @recipe.prep_time = params[:prep_time] || @recipe.prep_time
